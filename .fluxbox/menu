@@ -1,0 +1,9 @@
+[begin] (fluxbox)
+#	[begin] (saturnin)
+	[exec] (Rxvt-Unicode (Black, Xft\)) {urxvt -geometry 84x34 -fn "xft:Mono" -rv} </usr/share/pixmaps/urxvt.xpm>
+	[exec] (Icedove Mail) {icedove} </usr/share/pixmaps/icedove.xpm>
+	[exec] (Iceweasel) {iceweasel} </usr/share/pixmaps/iceweasel.xpm>
+	[exec] (Lock) {/usr/bin/i3lock -d -c 000070}
+#	[end]
+[include] (/etc/X11/fluxbox/fluxbox-menu)
+[end]
