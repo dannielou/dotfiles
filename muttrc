@@ -1,0 +1,179 @@
+set realname = "Eric"
+set from = "ericd@example.com"
+
+set spoolfile = ~/Maildir
+set folder    = ~/
+set tmpdir    = ~/tmp
+
+set charset = utf-8
+#set locale  = fr_FR.UTF-8@euro
+
+#set locale  = en_EN.UTF-8@euro
+
+#charset-hook x-unknown ISO-8859-15
+charset-hook windows-1250 CP1250
+charset-hook windows-1251 CP1251
+charset-hook windows-1252 CP1252                                                root
+charset-hook windows-1253 CP1253
+charset-hook windows-1254 CP1254
+charset-hook windows-1255 CP1255
+charset-hook windows-1256 CP1256
+charset-hook windows-1257 CP1257
+charset-hook windows-1258 CP1258
+
+
+hdr_order From: Subject: To: CC: BCC: Date: Organization: User-Agent: X-Mailer: Message-ID:
+
+set sort = date-sent
+
+set visual = builtin
+
+# Ne pas passer au message suivant lorsqu'on atteint la fin du courant
+set pager_stop = yes
+set smart_wrap = yes
+
+set pager_context = 3
+
+# Symbole de citation
+set quote_regexp = "^([ \t]*[|>/])+"
+set markers = yes
+
+
+set editor = "vim"
+
+set forward_decrypt = yes
+set forward_decode = yes
+set forward_format = "%s"
+set forward_quote = no
+
+set mbox_type = Maildir
+
+set mbox = ~/Maildir
+color hdrdefault black        cyan
+color quoted     red          white
+color signature  brightblack  white
+color indicator  brightwhite  red
+color attachment black        green
+color error      red          white
+color message    blue         white
+color search     brightwhite  magenta
+color status     brightyellow blue
+color tree       red          white
+color normal     blue         white
+color tilde      green        white
+color bold       brightyellow white
+color markers    red          white
+
+mono bold      bold
+mono underline underline
+mono indicator reverse
+
+color header brightwhite cyan "^(From|Subject):"
+color header red         cyan "^X-Junked-Because:"
+mono  header bold             "^(From|Subject|X-Junked-Because):"
+
+# Couleurs des items de l'index des messages
+color index brightblue  white  ~N
+color index brightwhite yellow ~F
+color index black       green  ~T
+color index brightwhite black  ~D
+mono  index bold               ~N
+mono  index bold               ~F
+mono  index bold               ~T
+mono  index bold               ~D
+
+
+# URLs
+color body brightblue  white "(http|https|ftp|news|telnet|finger)://[^ \">\t\r\n]*"
+color body brightblue  white "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+color body brightblue  white "news:[^ \">\t\r\n]*"
+mono  body bold              "(http|https|ftp|news|telnet|finger)://[^ \">\t\r\n]*"
+mono  body bold              "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+mono  body bold              "news:[^ \">\t\r\n]*"
+
+# Adresses email
+color body brightblue  white "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+mono  body bold              "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+
+# Smileys
+color body brightgreen white " [;:]-*[\)>\(<|]"
+color body brightgreen white " [\(\|\)]*c[:;=]"
+
+color body brightblue  white "(^|[^[:alnum:][:punct:]])\\*[[:alnum:][:punct:]]+\\*([^[:alnum:][:punct:]]|$)"
+
+color body brightblue  white "(^|[^[:alnum:][:punct:]])/[[:alnum:][:punct:]]+/([^[:alnum:][:punct:]]|$)"
+
+color body brightblue  white "(^|[^[:alnum:][:punct:]])_[[:alnum:][:punct:]]+_([^[:alnum:][:punct:]]|$)"
+
+
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Support de l'authentification et du chiffrement S/MIME
+#
+#source ~/mail/.smime.rc
+
+
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Description de l'utilisateur
+#
+
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Configuration globale
+#
+#set date_format = "!%a, %b %d, %Y at %I:%M:%S%p %Z"
+
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+#
+
+set print_command = "lpr"
+
+#set print_decode = yes
+set ispell = "/usr/local/bin/aspell --lang=en --mode=email check"
+set shell = "/usr/local/bin/bash"
+
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Index des messages
+#
+
+set mark_old = no
+
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Visualisation des messages
+#
+
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Composition de messages
+#
+
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+#
+
+set attribution = "%n wrote :"
+set indent_string = "| "
+set include = yes
+set reply_to = yes
+
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+#
+
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Envoi de messages
+#
+
+set use_from = yes
+
+send-hook . \
+    'my_hdr From: Eric <ericd@example.com>'
+
+
+auto_view text/html
+
