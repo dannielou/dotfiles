@@ -7,7 +7,7 @@
 
 # don't put duplicate lines in the history. See bash(1) for more options
 export HISTCONTROL=ignoredups
-export HISTTIMEFORMAT="%s "
+export HISTTIMEFORMAT="%d/%m/%y %T "
 unset HISTFILESIZE
 HISTSIZE=10000
 PROMPT_COMMAND="history -a"
